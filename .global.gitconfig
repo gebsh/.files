@@ -1,0 +1,53 @@
+[advice]
+	detachedHead = false
+[alias]
+	pushf = push --force-with-lease
+	pushn = push --no-verify
+	pushnf = push --no-verify --force-with-lease
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
+[branch]
+	autoSetupMerge = always
+	autoSetupRebase = always
+	sort = -committerdate
+[commit]
+	gpgSign = true
+	verbose = true
+[core]
+	attributesFile = ~/.global.gitattributes
+	editor = code --wait
+	eol = lf
+	excludesFile = ~/.global.gitignore
+	safecrlf = warn
+[diff]
+	algorithm = histogram
+[fetch]
+	writeCommitGraph = true
+[init]
+	defaultBranch = main
+[log]
+	date = iso
+[merge]
+	conflictStyle = zdiff3
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
+	default = current
+[rebase]
+	autoSquash = true
+	updateRefs = true
+[rerere]
+	autoUpdate = true
+	enabled = true
+[tag]
+	gpgSign = true
+	sort = -v:refname
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[user]
+	email = gebler.szymon@gmail.com
+	name = Szymon Gebler
+
+[include]
+	path = .private.gitconfig

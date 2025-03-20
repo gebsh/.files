@@ -1,0 +1,355 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = false
+command_timeout = 1000
+scan_timeout = 1000
+continuation_prompt = '[∙](fg:#9399b2) '
+format = """
+$username$hostname$directory$git_branch$git_commit$git_state$git_status$fill$nodejs$python$rust$zig
+$cmd_duration$character"""
+
+[character]
+disabled = false
+error_symbol = "[\uEAB6](bold fg:#f38ba8)"
+success_symbol = "[\uEAB6](bold fg:#a6e3a1)"
+
+[cmd_duration]
+disabled = false
+format = '[$duration]($style) '
+style = 'fg:#f5c2e7'
+min_time = 1000
+show_milliseconds = false
+show_notifications = false
+
+[directory]
+disabled = false
+format = '[$path]($style)[$read_only]($read_only_style) '
+style = 'fg:#9399b2'
+read_only = " \uEA75"
+read_only_style = 'fg:#9399b2'
+truncation_symbol = '../'
+
+[git_branch]
+disabled = false
+format = '[$symbol $branch(:$remote_branch)]($style) '
+style = 'fg:#89b4fa'
+symbol = "\uF418"
+
+[git_commit]
+disabled = false
+format = '[\($hash$tag\)]($style) '
+style = 'fg:#89b4fa'
+tag_disabled = false
+tag_symbol = '@'
+
+[git_state]
+disabled = false
+format = '[$state]($style)[( $progress_current/$progress_total)](fg:#89b4fa) '
+style = 'fg:#89b4fa'
+am = 'am'
+am_or_rebase = 'am/rebase'
+bisect = 'bisect'
+cherry_pick = 'cherry-pick'
+merge = 'merge'
+rebase = 'rebase'
+revert = 'revert'
+
+[git_metrics]
+disabled = true
+
+[git_status]
+disabled = false
+format = '[($ahead_behind )($stashed )($staged )($deleted )($untracked )($modified )($typechanged )($renamed )($conflicted )]($style)'
+style = 'fg:#89b4fa'
+ahead = '$count↑'
+behind = '$count↓'
+conflicted = '[!$count](fg:#fab387)'
+deleted = '[-$count](fg:#f38ba8)'
+diverged = '$ahead_count↑ $behind_count↓ [↕](fg:#94e2d5)'
+modified = '[~$count](fg:#f9e2af)'
+renamed = '[»$count](fg:#89b4fa)'
+staged = '[+$count](fg:#a6e3a1)'
+stashed = '[≡$count](fg:#94e2d5)'
+typechanged = '[›$count](fg:#cba6f7)'
+untracked = '[?$count](fg:#74c7ec)'
+
+[hostname]
+disabled = false
+format = '[@$hostname]($style) '
+style = 'fg:#cdd6f4'
+
+[nodejs]
+disabled = false
+format = ' [$symbol $version( ↔ $engines_version)]($style)'
+style = 'fg:#a6e3a1'
+detect_extensions = []
+detect_files = ['package.json']
+detect_folders = []
+not_capable_style = 'fg:#f38ba8'
+symbol = "\uED0D"
+
+[python]
+disabled = false
+format = ' [$symbol $version]($style)[( $virtualenv)](fg:#9399b2)'
+style = 'fg:#89b4fa'
+detect_extensions = []
+detect_files = ['pyproject.toml']
+symbol = "\uED1B"
+
+[rust]
+disabled = false
+format = ' [$symbol $numver( \($toolchain\))]($style)'
+style = 'fg:#fab387'
+detect_extensions = []
+detect_files = ['Cargo.toml']
+symbol = "\U000F1617"
+
+[username]
+disabled = false
+format = '[$user]($style)'
+style_root = 'bold fg:#cdd6f4'
+style_user = 'fg:#cdd6f4'
+
+[zig]
+disabled = false
+format = ' [$symbol $version]($style)'
+style = 'fg:#f9e2af'
+detect_extensions = []
+detect_files = ["build.zig.zon"]
+symbol = "\uE6A9"
+
+# Disable the rest of the modules explicitly. Some of them might already be disabled by default, but
+# doing this explicitly makes sure that these won't be silently enabled when upgrading Starship.
+[aws]
+disabled = true
+
+[azure]
+disabled = true
+
+[battery]
+disabled = true
+
+[buf]
+disabled = true
+
+[bun]
+disabled = true
+
+[c]
+disabled = true
+
+[cmake]
+disabled = true
+
+[cobol]
+disabled = true
+
+[conda]
+disabled = true
+
+[container]
+disabled = true
+
+[crystal]
+disabled = true
+
+[daml]
+disabled = true
+
+[dart]
+disabled = true
+
+[deno]
+disabled = true
+
+[direnv]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[dotnet]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[erlang]
+disabled = true
+
+[fennel]
+disabled = true
+
+[fill]
+disabled = false
+symbol = ' '
+
+[fossil_branch]
+disabled = true
+
+[fossil_metrics]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[gleam]
+disabled = true
+
+[golang]
+disabled = true
+
+[guix_shell]
+disabled = true
+
+[gradle]
+disabled = true
+
+[haskell]
+disabled = true
+
+[haxe]
+disabled = true
+
+[helm]
+disabled = true
+
+[java]
+disabled = true
+
+[jobs]
+disabled = true
+
+[julia]
+disabled = true
+
+[kotlin]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[line_break]
+disabled = true
+
+[localip]
+disabled = true
+
+[lua]
+disabled = true
+
+[memory_usage]
+disabled = true
+
+[meson]
+disabled = true
+
+[hg_branch]
+disabled = true
+
+[mojo]
+disabled = true
+
+[nats]
+disabled = true
+
+[nim]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[ocaml]
+disabled = true
+
+[odin]
+disabled = true
+
+[opa]
+disabled = true
+
+[openstack]
+disabled = true
+
+[os]
+disabled = true
+
+[package]
+disabled = true
+
+[perl]
+disabled = true
+
+[php]
+disabled = true
+
+[pijul_channel]
+disabled = true
+
+[pulumi]
+disabled = true
+
+[purescript]
+disabled = true
+
+[quarto]
+disabled = true
+
+[rlang]
+disabled = true
+
+[raku]
+disabled = true
+
+[red]
+disabled = true
+
+[ruby]
+disabled = true
+
+[scala]
+disabled = true
+
+[shell]
+disabled = true
+
+[shlvl]
+disabled = true
+
+[singularity]
+disabled = true
+
+[solidity]
+disabled = true
+
+[spack]
+disabled = true
+
+[status]
+disabled = true
+
+[sudo]
+disabled = true
+
+[swift]
+disabled = true
+
+[terraform]
+disabled = true
+
+[time]
+disabled = true
+
+[typst]
+disabled = true
+
+[vagrant]
+disabled = true
+
+[vlang]
+disabled = true
+
+[vcsh]
+disabled = true
