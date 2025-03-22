@@ -1,0 +1,4 @@
+[submodule "bat/theme"]
+	path = bat/theme
+	url = git@github.com:catppuccin/bat.git
+	shallow = true

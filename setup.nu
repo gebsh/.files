@@ -8,6 +8,8 @@ let configs = [
 	['.global.gitignore', '~/.global.gitignore']
 	['.global.gitconfig', '~/.gitconfig']
 	['.private.gitconfig', '~/.private.gitconfig']
+	['bat/theme/themes/Catppuccin Mocha.tmTheme', ($CONFIG_DIR | path join 'bat/themes/Catppuccin Mocha.tmTheme')]
+	['bat/config', ($CONFIG_DIR | path join 'bat/config')]
 	['dust/config.toml', ($CONFIG_DIR | path join 'dust/config.toml')]
 	['starship/starship.toml', ($CONFIG_DIR | path join 'starship.toml')]
 	['nushell/env.nu', ($NU_DIR | path join 'env.nu')]
