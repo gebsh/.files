@@ -88,6 +88,7 @@ $env.HOMEBREW_PREFIX = '/usr/local'
 $env.HOMEBREW_CELLAR = '/usr/local/Cellar'
 $env.HOMEBREW_REPOSITORY = '/usr/local/Homebrew'
 $env.HOMEBREW_NO_ANALYTICS = 1
+$env.HOMEBREW_NO_ENV_HINTS = 1
 
 $env.NODE_REPL_HISTORY = ($env.XDG_CACHE_HOME | path join 'node' 'repl_history')
 $env.NPM_CONFIG_USERCONFIG = ($env.XDG_CONFIG_HOME | path join 'npm' '.npmrc')
