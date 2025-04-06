@@ -10,6 +10,7 @@ let configs = [
 	['bat/config', ($CONFIG_DIR | path join 'bat' 'config')]
 	['dust/config.toml', '~/.config/dust/config.toml']
 	['ghostty/config', ($CONFIG_DIR | path join 'com.mitchellh.ghostty' 'config')]
+	['npm/.npmrc', ($CONFIG_DIR | path join 'npm' '.npmrc')]
 	['nushell/env.nu', ($CONFIG_DIR | path join 'nushell' 'env.nu')]
 	['nushell/config.nu', ($CONFIG_DIR | path join 'nushell' 'config.nu')]
 	['nushell/modules', ($CONFIG_DIR | path join 'nushell' 'modules')]

@@ -89,6 +89,9 @@ $env.HOMEBREW_CELLAR = '/usr/local/Cellar'
 $env.HOMEBREW_REPOSITORY = '/usr/local/Homebrew'
 $env.HOMEBREW_NO_ANALYTICS = 1
 
+$env.NODE_REPL_HISTORY = ($env.XDG_CACHE_HOME | path join 'node' 'repl_history')
+$env.NPM_CONFIG_USERCONFIG = ($env.XDG_CONFIG_HOME | path join 'npm' '.npmrc')
+
 $env.STARSHIP_CONFIG = ($env.XDG_CONFIG_HOME | path join 'starship' 'starship.toml')
 $env.STARSHIP_SHELL = 'nu'
 $env.STARSHIP_SESSION_KEY = (random chars -l 16)
