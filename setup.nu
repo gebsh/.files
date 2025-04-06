@@ -1,6 +1,4 @@
-const CONFIG_DIR = '~/.config'
-const APP_SUPPORT_DIR = '~/Library/Application Support'
-const NU_DIR = ($APP_SUPPORT_DIR | path join 'nushell')
+const CONFIG_DIR = '~/Library/Application Support'
 
 let configs = [
 	[target, link];
@@ -8,14 +6,14 @@ let configs = [
 	['.global.gitignore', '~/.global.gitignore']
 	['.global.gitconfig', '~/.gitconfig']
 	['.private.gitconfig', '~/.private.gitconfig']
-	['bat/theme/themes/Catppuccin Mocha.tmTheme', ($CONFIG_DIR | path join 'bat/themes/Catppuccin Mocha.tmTheme')]
-	['bat/config', ($CONFIG_DIR | path join 'bat/config')]
-	['dust/config.toml', ($CONFIG_DIR | path join 'dust/config.toml')]
-	['starship/starship.toml', ($CONFIG_DIR | path join 'starship.toml')]
-	['nushell/env.nu', ($NU_DIR | path join 'env.nu')]
-	['nushell/config.nu', ($NU_DIR | path join 'config.nu')]
-	['nushell/modules', ($NU_DIR | path join 'modules')]
-	['ghostty/config', ($APP_SUPPORT_DIR | path join 'com.mitchellh.ghostty/config')]
+	['bat/theme/themes/Catppuccin Mocha.tmTheme', ($CONFIG_DIR | path join 'bat' 'themes' 'Catppuccin Mocha.tmTheme')]
+	['bat/config', ($CONFIG_DIR | path join 'bat' 'config')]
+	['dust/config.toml', '~/.config/dust/config.toml']
+	['ghostty/config', ($CONFIG_DIR | path join 'com.mitchellh.ghostty' 'config')]
+	['nushell/env.nu', ($CONFIG_DIR | path join 'nushell' 'env.nu')]
+	['nushell/config.nu', ($CONFIG_DIR | path join 'nushell' 'config.nu')]
+	['nushell/modules', ($CONFIG_DIR | path join 'nushell' 'modules')]
+	['starship/starship.toml', ($CONFIG_DIR | path join 'starship' 'starship.toml')]
 ]
 
 for $config in $configs {
