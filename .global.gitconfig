@@ -7,8 +7,6 @@
 [blame]
 	ignoreRevsFile = .git-blame-ignore-revs
 [branch]
-	autoSetupMerge = always
-	autoSetupRebase = always
 	sort = -committerdate
 [commit]
 	gpgSign = true
