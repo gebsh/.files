@@ -149,6 +149,9 @@ disabled = true
 [container]
 disabled = true
 
+[cpp]
+disabled = true
+
 [crystal]
 disabled = true
 
@@ -249,10 +252,16 @@ disabled = true
 [hg_branch]
 disabled = true
 
+[mise]
+disabled = true
+
 [mojo]
 disabled = true
 
 [nats]
+disabled = true
+
+[netns]
 disabled = true
 
 [nim]
@@ -286,6 +295,9 @@ disabled = true
 disabled = true
 
 [pijul_channel]
+disabled = true
+
+[pixi]
 disabled = true
 
 [pulumi]
