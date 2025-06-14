@@ -34,7 +34,7 @@ def --env --wrapped j [...rest: string] {
 	let path = match $rest {
 		[] => '~',
 		['-'] => '-',
-		[$arg] if ($arg | path type) == 'dir' => $arg,
+		[$arg] if ($arg | path expand | path type) == 'dir' => $arg,
 		_ => {
 			^zoxide query --exclude $env.PWD -- ...$rest | str trim -r -c "\n"
 		}
