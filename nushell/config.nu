@@ -1,4 +1,5 @@
 use std/util 'path add'
+use modules/font.nu
 use modules/theme.nu [ catppuccin_mocha palette ]
 
 const HOME_DIR = ('~' | path expand)
