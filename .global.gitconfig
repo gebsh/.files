@@ -46,6 +46,7 @@
 [user]
 	email = gebler.szymon@gmail.com
 	name = Szymon Gebler
+	useConfigOnly = true
 
 [include]
 	path = .private.gitconfig
