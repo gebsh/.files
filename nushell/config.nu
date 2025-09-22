@@ -34,25 +34,6 @@ do --env {
 	path add $env.PNPM_HOME
 	path add ($env.CARGO_HOME | path join 'bin')
 
-	def --env --wrapped j [...rest: string] {
-		let path = match $rest {
-			[] => '~',
-			['-'] => '-',
-			[$arg] if ($arg | path expand | path type) == 'dir' => $arg,
-			_ => {
-				^zoxide query --exclude $env.PWD -- ...$rest | str trim -r -c "\n"
-			}
-		}
-
-		cd $path
-	}
-
-	def --env --wrapped ji [...rest: string] {
-		cd $'(^zoxide query --interactive -- ...$rest | str trim -r -c "\n")'
-	}
-
-	alias tree = ^dust
-
 	$env.VISUAL = 'code'
 	$env.LS_COLORS = (
 		[
@@ -143,3 +124,22 @@ do --env {
 	$env.config.show_banner = false
 	$env.config.table.missing_value_symbol = '<empty>'
 }
+
+def --env --wrapped j [...rest: string] {
+	let path = match $rest {
+		[] => '~',
+		['-'] => '-',
+		[$arg] if ($arg | path expand | path type) == 'dir' => $arg,
+		_ => {
+			^zoxide query --exclude $env.PWD -- ...$rest | str trim -r -c "\n"
+		}
+	}
+
+	cd $path
+}
+
+def --env --wrapped ji [...rest: string] {
+	cd $'(^zoxide query --interactive -- ...$rest | str trim -r -c "\n")'
+}
+
+alias tree = ^dust
