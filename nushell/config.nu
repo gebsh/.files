@@ -48,6 +48,7 @@ do --env {
 			[cd, $theme.palette.maroon]
 			[su, $theme.palette.text]
 			[sg, $theme.palette.text]
+			[st, $theme.palette.yellow]
 			[tw, $theme.palette.yellow]
 			[ow, $theme.palette.yellow]
 		]
