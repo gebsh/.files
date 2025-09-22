@@ -1,6 +1,8 @@
 [advice]
 	detachedHead = false
 [alias]
+	commita = commit --amend
+	commitan = commit --amend --no-edit
 	pushf = push --force-with-lease
 	pushn = push --no-verify
 	pushnf = push --no-verify --force-with-lease
