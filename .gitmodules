@@ -1,7 +1,3 @@
-[submodule "bat/theme"]
-	path = bat/theme
-	url = git@github.com:catppuccin/bat.git
-	shallow = true
 [submodule "nerd-fonts"]
 	path = nushell/modules/extern/nerd-fonts
 	url = git@github.com:ryanoasis/nerd-fonts.git
