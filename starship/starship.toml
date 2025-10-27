@@ -28,6 +28,10 @@ read_only = " \uEA75"
 read_only_style = 'fg:#9399b2'
 truncation_symbol = '../'
 
+[fill]
+disabled = false
+symbol = ' '
+
 [git_branch]
 disabled = false
 format = '[$symbol $branch(:$remote_branch)]($style) '
@@ -185,9 +189,8 @@ disabled = true
 [fennel]
 disabled = true
 
-[fill]
-disabled = false
-symbol = ' '
+[fortran]
+disabled = true
 
 [fossil_branch]
 disabled = true
@@ -250,6 +253,9 @@ disabled = true
 disabled = true
 
 [hg_branch]
+disabled = true
+
+[hg_state]
 disabled = true
 
 [mise]
@@ -364,4 +370,7 @@ disabled = true
 disabled = true
 
 [vcsh]
+disabled = true
+
+[xmake]
 disabled = true

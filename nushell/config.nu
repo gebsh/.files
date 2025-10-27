@@ -84,17 +84,25 @@ do --env {
 	$env.STARSHIP_SESSION_KEY = (random chars -l 16)
 	$env.STARSHIP_CACHE = ($env.XDG_CACHE_HOME | path join 'starship')
 	$env.PROMPT_COMMAND = { ||
+		# https://github.com/nushell/nushell/discussions/6402
+		let cmd_duration = if $env.CMD_DURATION_MS == '0823' { 0 } else { $env.CMD_DURATION_MS }
+
 		(^starship prompt
-			--cmd-duration $env.CMD_DURATION_MS
-			$"--status=($env.LAST_EXIT_CODE)"
-			--terminal-width (term size).columns)
+			--cmd-duration $cmd_duration
+			--status $env.LAST_EXIT_CODE
+			--terminal-width (term size).columns
+			--jobs (job list | length))
 	}
 	$env.PROMPT_COMMAND_RIGHT = { ||
+		# https://github.com/nushell/nushell/discussions/6402
+		let cmd_duration = if $env.CMD_DURATION_MS == '0823' { 0 } else { $env.CMD_DURATION_MS }
+
 		(^starship prompt
 			--right
-			--cmd-duration $env.CMD_DURATION_MS
-			$"--status=($env.LAST_EXIT_CODE)"
-			--terminal-width (term size).columns)
+			--cmd-duration $cmd_duration
+			--status $env.LAST_EXIT_CODE
+			--terminal-width (term size).columns
+			--jobs (job list | length))
 	}
 	$env.PROMPT_INDICATOR = ''
 	$env.PROMPT_INDICATOR_VI_INSERT = ''
