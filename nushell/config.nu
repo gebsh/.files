@@ -89,7 +89,7 @@ do --env {
 
 		(^starship prompt
 			--cmd-duration $cmd_duration
-			--status $env.LAST_EXIT_CODE
+			--status=($env.LAST_EXIT_CODE)
 			--terminal-width (term size).columns
 			--jobs (job list | length))
 	}
@@ -100,7 +100,7 @@ do --env {
 		(^starship prompt
 			--right
 			--cmd-duration $cmd_duration
-			--status $env.LAST_EXIT_CODE
+			--status=($env.LAST_EXIT_CODE)
 			--terminal-width (term size).columns
 			--jobs (job list | length))
 	}
