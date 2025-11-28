@@ -16,7 +16,7 @@
 	verbose = true
 [core]
 	attributesFile = ~/.global.gitattributes
-	editor = code --wait
+	editor = codium --wait
 	eol = lf
 	excludesFile = ~/.global.gitignore
 	safecrlf = warn

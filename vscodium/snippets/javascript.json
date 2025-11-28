@@ -1,0 +1,7 @@
+{
+	"TODO": {
+		"prefix": "todo",
+		"body": ["throw new Error('TODO');$0"],
+		"description": "Inserts a `throw` statement with a TODO error."
+	}
+}

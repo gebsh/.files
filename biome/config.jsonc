@@ -1,0 +1,20 @@
+{
+	"$schema": "https://biomejs.dev/schemas/latest/schema.json",
+	"assist": {
+		"enabled": true
+	},
+	"formatter": {
+		"enabled": true,
+		"indentWidth": 4,
+		"lineWidth": 100,
+		"useEditorconfig": true
+	},
+	"linter": {
+		"enabled": true
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single"
+		}
+	}
+}

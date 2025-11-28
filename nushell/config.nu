@@ -30,11 +30,12 @@ do --env {
 
 	path add '/usr/local/sbin'
 	path add '/usr/local/bin'
-	path add '/Applications/Visual Studio Code.app/Contents/Resources/app/bin'
+	path add '/usr/local/opt/llvm/bin'
+	path add ($env.XDG_DATA_HOME | path join 'carapace' 'bin')
 	path add $env.PNPM_HOME
 	path add ($env.CARGO_HOME | path join 'bin')
 
-	$env.VISUAL = 'code'
+	$env.VISUAL = 'codium'
 	$env.LS_COLORS = (
 		[
 			[type, fg];
@@ -117,7 +118,7 @@ do --env {
 	$env.TRANSIENT_PROMPT_INDICATOR_VI_INSERT = ''
 	$env.TRANSIENT_PROMPT_MULTILINE_INDICATOR = ''
 
-	$env.config.buffer_editor = 'code'
+	$env.config.buffer_editor = 'codium'
 	$env.config.color_config = $theme.catppuccin_mocha
 	$env.config.display_errors.termination_signal = false
 	$env.config.filesize.precision = 2

@@ -1,4 +1,4 @@
-const CONFIG_DIR = '~/Library/Application Support'
+const XDG_CONFIG_HOME = '~/Library/Application Support'
 
 let configs = [
 	[target, link];
@@ -6,14 +6,19 @@ let configs = [
 	['.global.gitignore', '~/.global.gitignore']
 	['.global.gitconfig', '~/.gitconfig']
 	['.private.gitconfig', '~/.private.gitconfig']
-	['bat/config', ($CONFIG_DIR | path join 'bat' 'config')]
+	['bat/config', ($XDG_CONFIG_HOME | path join 'bat' 'config')]
+	['biome/config.jsonc', '~/biome.jsonc']
+	['clang/.clang-format', '~/.clang-format']
 	['dust/config.toml', '~/.config/dust/config.toml']
-	['ghostty/config', ($CONFIG_DIR | path join 'com.mitchellh.ghostty' 'config')]
-	['npm/.npmrc', ($CONFIG_DIR | path join 'npm' '.npmrc')]
-	['nushell/env.nu', ($CONFIG_DIR | path join 'nushell' 'env.nu')]
-	['nushell/config.nu', ($CONFIG_DIR | path join 'nushell' 'config.nu')]
-	['nushell/modules', ($CONFIG_DIR | path join 'nushell' 'modules')]
-	['starship/starship.toml', ($CONFIG_DIR | path join 'starship' 'starship.toml')]
+	['ghostty/config', ($XDG_CONFIG_HOME | path join 'com.mitchellh.ghostty' 'config')]
+	['npm/.npmrc', ($XDG_CONFIG_HOME | path join 'npm' '.npmrc')]
+	['nushell/env.nu', ($XDG_CONFIG_HOME | path join 'nushell' 'env.nu')]
+	['nushell/config.nu', ($XDG_CONFIG_HOME | path join 'nushell' 'config.nu')]
+	['nushell/modules', ($XDG_CONFIG_HOME | path join 'nushell' 'modules')]
+	['ruff/ruff.toml', '~/.ruff.toml']
+	['starship/starship.toml', ($XDG_CONFIG_HOME | path join 'starship' 'starship.toml')]
+	['vscodium/snippets', ($XDG_CONFIG_HOME | path join 'VSCodium' 'User' 'snippets')]
+	['vscodium/settings.jsonc', ($XDG_CONFIG_HOME | path join 'VSCodium' 'User' 'settings.json')]
 ]
 
 for $config in $configs {
@@ -26,14 +31,14 @@ for $config in $configs {
 		mkdir ($link | path dirname)
 		^ln -s $target $link
 
-		print $"(ansi green)created link ($config.link) -> ($config.target)(ansi reset)"
+		print $'(ansi green)created link ($config.link) -> ($config.target)(ansi reset)'
 	} else {
 		let reason = if not $target_exists {
 			"target doesn't exist"
 		} else {
-			"link already exists"
+			'link already exists'
 		}
 
-		print $"(ansi yellow)skipping link ($config.link) -> ($config.target):(ansi reset) ($reason)"
+		print $'(ansi yellow)skipping link ($config.link) -> ($config.target):(ansi reset) ($reason)'
 	}
 }
