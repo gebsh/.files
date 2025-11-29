@@ -36,12 +36,110 @@ export def patch [
 	}
 
 	for font_file in $font_files {
-		(INPUT_FONT=$font_file.name ^fontforge
+		let stdout = (^fontforge
 			--script $patcher_path
 			$font_file.name
 			--mono
 			--complete
-			--postprocess $renamer_path
 			--outputdir $out_dir_path)
+		let out_file = (
+			$stdout | lines | last | parse -r "\\===> '(?<path>.+?)'" | first | get path
+		)
+
+		^fontforge --script $renamer_path $font_file.name $out_file
+	}
+}
+
+const COOKIE_SEPARATOR = '; '
+const DEFAULT_VARIANTS = [
+	{}
+	{ suffix: 'Nerd Font' }
+	{
+		suffix: 'Preconfigured Ligatures Nerd Font'
+		exclude: ['liga']
+		freeze: ['zero', 'ss01', 'ss03', 'ss07', 'ss08', 'ss12', 'ss13', 'ss15', 'ss16']
+	}
+]
+
+# Downloads the specified variants of the latest stable version of the MonoLisa font using the
+# provided credentials.
+#
+# Unless the output directory is specified, the downloaded files are saved to the `XDG_DOWNLOAD_DIR`
+# directory, or to the current directory if that environment variable is not set.
+export def download [
+	email: string # The user's e-mail
+	order_id: string # The order number
+	--out-dir (-o): directory # The directory where the downloaded fonts will be saved
+	--variants (-v): list = $DEFAULT_VARIANTS # A list of font variants to download
+]: nothing -> nothing {
+	let out_dir_path = ($out_dir | default $env.XDG_DOWNLOAD_DIR | default './')
+	let get_cookies = { |headers|
+		$headers
+			| where name == 'set-cookie'
+			| get value
+			| each { split row -n 2 $COOKIE_SEPARATOR | first }
+	}
+	let join_cookies = { |cookies| $cookies | str join $COOKIE_SEPARATOR }
+
+	let credentials_url = (
+		http get 'https://www.monolisa.dev/api/auth/providers'
+			| get credentials.callbackUrl
+	)
+
+	let csrf_response = (
+		http get --full 'https://www.monolisa.dev/api/auth/csrf'
+			| get headers.response body
+	)
+	let csrf_cookies = do $get_cookies $csrf_response.0
+	let csrf_token = $csrf_response.1.csrfToken
+
+	let credentials_cookies = (
+		http post
+			--headers { Cookie: (do $join_cookies $csrf_cookies) }
+			--content-type 'application/x-www-form-urlencoded'
+			$credentials_url
+			{
+				email: $email
+				order_id: $order_id
+				redirect: false
+				csrfToken: $csrf_token
+				json: true
+			}
+			| metadata
+			| get http_response.headers
+			| do $get_cookies $in
+	)
+
+	let cookies = ($csrf_cookies | append $credentials_cookies | uniq)
+
+	for $variant in $variants {
+		let body = (
+			$variant
+				| merge {
+					format: 'ttf'
+					releaseType: 'stable'
+					weights: [300 400 500 600 700]
+				}
+				| default '' suffix
+				| default [] exclude freeze
+				| insert fileName { |body|
+					if ($body.suffix | is-empty) {
+						$'MonoLisa-($body.releaseType).zip'
+					} else {
+						$'MonoLisa-($body.suffix)-($body.releaseType).zip'
+					}
+				}
+		)
+		let out_file_path = ($out_dir_path | path join $body.fileName)
+
+		print --no-newline $'Downloading ($body.fileName)...'
+
+		(http post
+			--headers { Cookie: (do $join_cookies $cookies) }
+			--content-type 'text/plain'
+			'https://www.monolisa.dev/api/download/v2/desktop'
+			($body | to json) out> $out_file_path)
+
+		print ' done'
 	}
 }
