@@ -197,7 +197,8 @@
 	// Extension settings
 	"catppuccin-icons.associations.extensions": {
 		"gitattributes": "git",
-		"gitconfig": "git"
+		"gitconfig": "git",
+		"rels": "xml"
 	},
 	"catppuccin.boldKeywords": false,
 	"catppuccin.extraBordersEnabled": true,
