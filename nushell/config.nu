@@ -12,6 +12,10 @@ do --env {
 	#
 	# These paths are taken from https://docs.rs/dirs/6.0.0/dirs/ with an exception for the
 	# `XDG_STATE_HOME` variable (used for example by pnpm), which is set to the cache directory.
+	#
+	# `XDG_BIN_HOME` is not part of the XDG standard, but it's recognized by some tools (`uv`, most
+	# notably), so it's included here as well.
+	$env.XDG_BIN_HOME = ($HOME_DIR | path join 'Library' 'bin')
 	$env.XDG_CACHE_HOME = ($HOME_DIR | path join 'Library' 'Caches')
 	$env.XDG_CONFIG_HOME = ($HOME_DIR | path join 'Library' 'Application Support')
 	$env.XDG_DATA_HOME = $env.XDG_CONFIG_HOME
@@ -31,6 +35,7 @@ do --env {
 	path add '/usr/local/sbin'
 	path add '/usr/local/bin'
 	path add '/usr/local/opt/llvm/bin'
+	path add $env.XDG_BIN_HOME
 	path add $env.PNPM_HOME
 	path add ($env.CARGO_HOME | path join 'bin')
 
