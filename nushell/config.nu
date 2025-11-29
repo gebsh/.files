@@ -31,7 +31,6 @@ do --env {
 	path add '/usr/local/sbin'
 	path add '/usr/local/bin'
 	path add '/usr/local/opt/llvm/bin'
-	path add ($env.XDG_DATA_HOME | path join 'carapace' 'bin')
 	path add $env.PNPM_HOME
 	path add ($env.CARGO_HOME | path join 'bin')
 
