@@ -22,6 +22,7 @@
 	"editor.cursorSmoothCaretAnimation": "on",
 	"editor.cursorStyle": "line-thin",
 	"editor.cursorSurroundingLines": 4,
+	"editor.detectIndentation": false,
 	"editor.fontFamily": "MonoLisa, 'Iosevka Fixed Extended', 'SF Mono', Menlo, Monaco, 'DejaVu Sans Mono', 'Cascadia Code', monospace",
 	"editor.fontLigatures": "'liga' off, 'zero', 'ss01', 'ss03', 'ss07', 'ss08', 'ss12', 'ss13', 'ss15', 'ss16'",
 	"editor.fontSize": 15,
