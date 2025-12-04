@@ -17,6 +17,7 @@ let configs = [
 	['nushell/modules', ($XDG_CONFIG_HOME | path join 'nushell' 'modules')]
 	['ruff/ruff.toml', '~/.ruff.toml']
 	['starship/starship.toml', ($XDG_CONFIG_HOME | path join 'starship' 'starship.toml')]
+	['tombi/config.toml', ($XDG_CONFIG_HOME | path join 'tombi' 'config.toml')]
 	['vscodium/snippets', ($XDG_CONFIG_HOME | path join 'VSCodium' 'User' 'snippets')]
 	['vscodium/settings.jsonc', ($XDG_CONFIG_HOME | path join 'VSCodium' 'User' 'settings.json')]
 ]

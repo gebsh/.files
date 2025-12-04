@@ -1,0 +1,7 @@
+[format]
+[format.rules]
+date-time-delimiter = "space"
+indent-style = "tab"
+indent-width = 4
+line-width = 100
+trailing-comment-space-width = 1

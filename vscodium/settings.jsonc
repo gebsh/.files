@@ -355,7 +355,7 @@
 		"editor.defaultFormatter": "rust-lang.rust-analyzer"
 	},
 	"[toml]": {
-		"editor.defaultFormatter": "tamasfe.even-better-toml"
+		"editor.defaultFormatter": "tombi-toml.tombi"
 	},
 	"[typescript]": {
 		"editor.codeActionsOnSave": {

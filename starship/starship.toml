@@ -1,8 +1,9 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+#:schema https://starship.rs/config-schema.json
+
 add_newline = false
 command_timeout = 1000
 scan_timeout = 1000
-continuation_prompt = '[∙](fg:#9399b2) '
+continuation_prompt = "[∙](fg:#9399b2) "
 format = """
 $username$hostname$directory$git_branch$git_commit$git_state$git_status$fill$nodejs$python$rust$zig
 $cmd_duration$character"""
@@ -14,109 +15,109 @@ success_symbol = "[\uEAB6](bold fg:#a6e3a1)"
 
 [cmd_duration]
 disabled = false
-format = '[$duration]($style) '
-style = 'fg:#f5c2e7'
+format = "[$duration]($style) "
+style = "fg:#f5c2e7"
 min_time = 1000
 show_milliseconds = false
 show_notifications = false
 
 [directory]
 disabled = false
-format = '[$path]($style)[$read_only]($read_only_style) '
-style = 'fg:#9399b2'
+format = "[$path]($style)[$read_only]($read_only_style) "
+style = "fg:#9399b2"
 read_only = " \uEA75"
-read_only_style = 'fg:#9399b2'
-truncation_symbol = '../'
+read_only_style = "fg:#9399b2"
+truncation_symbol = "../"
 
 [fill]
 disabled = false
-symbol = ' '
+symbol = " "
 
 [git_branch]
 disabled = false
-format = '[$symbol $branch(:$remote_branch)]($style) '
-style = 'fg:#89b4fa'
+format = "[$symbol $branch(:$remote_branch)]($style) "
+style = "fg:#89b4fa"
 symbol = "\uF418"
 
 [git_commit]
 disabled = false
 format = '[\($hash$tag\)]($style) '
-style = 'fg:#89b4fa'
+style = "fg:#89b4fa"
 tag_disabled = false
-tag_symbol = '@'
+tag_symbol = "@"
 
 [git_state]
 disabled = false
-format = '[$state]($style)[( $progress_current/$progress_total)](fg:#89b4fa) '
-style = 'fg:#89b4fa'
-am = 'am'
-am_or_rebase = 'am/rebase'
-bisect = 'bisect'
-cherry_pick = 'cherry-pick'
-merge = 'merge'
-rebase = 'rebase'
-revert = 'revert'
+format = "[$state]($style)[( $progress_current/$progress_total)](fg:#89b4fa) "
+style = "fg:#89b4fa"
+am = "am"
+am_or_rebase = "am/rebase"
+bisect = "bisect"
+cherry_pick = "cherry-pick"
+merge = "merge"
+rebase = "rebase"
+revert = "revert"
 
 [git_metrics]
 disabled = true
 
 [git_status]
 disabled = false
-format = '[($ahead_behind )($stashed )($staged )($deleted )($untracked )($modified )($typechanged )($renamed )($conflicted )]($style)'
-style = 'fg:#89b4fa'
-ahead = '$count↑'
-behind = '$count↓'
-conflicted = '[!$count](fg:#fab387)'
-deleted = '[-$count](fg:#f38ba8)'
-diverged = '$ahead_count↑ $behind_count↓ [↕](fg:#94e2d5)'
-modified = '[~$count](fg:#f9e2af)'
-renamed = '[»$count](fg:#89b4fa)'
-staged = '[+$count](fg:#a6e3a1)'
-stashed = '[≡$count](fg:#94e2d5)'
-typechanged = '[›$count](fg:#cba6f7)'
-untracked = '[?$count](fg:#74c7ec)'
+format = "[($ahead_behind )($stashed )($staged )($deleted )($untracked )($modified )($typechanged )($renamed )($conflicted )]($style)"
+style = "fg:#89b4fa"
+ahead = "$count↑"
+behind = "$count↓"
+conflicted = "[!$count](fg:#fab387)"
+deleted = "[-$count](fg:#f38ba8)"
+diverged = "$ahead_count↑ $behind_count↓ [↕](fg:#94e2d5)"
+modified = "[~$count](fg:#f9e2af)"
+renamed = "[»$count](fg:#89b4fa)"
+staged = "[+$count](fg:#a6e3a1)"
+stashed = "[≡$count](fg:#94e2d5)"
+typechanged = "[›$count](fg:#cba6f7)"
+untracked = "[?$count](fg:#74c7ec)"
 
 [hostname]
 disabled = false
-format = '[@$hostname]($style) '
-style = 'fg:#cdd6f4'
+format = "[@$hostname]($style) "
+style = "fg:#cdd6f4"
 
 [nodejs]
 disabled = false
-format = ' [$symbol $version( ↔ $engines_version)]($style)'
-style = 'fg:#a6e3a1'
+format = " [$symbol $version( ↔ $engines_version)]($style)"
+style = "fg:#a6e3a1"
 detect_extensions = []
-detect_files = ['package.json']
+detect_files = ["package.json"]
 detect_folders = []
-not_capable_style = 'fg:#f38ba8'
+not_capable_style = "fg:#f38ba8"
 symbol = "\uED0D"
 
 [python]
 disabled = false
-format = ' [$symbol $version]($style)[( $virtualenv)](fg:#9399b2)'
-style = 'fg:#89b4fa'
+format = " [$symbol $version]($style)[( $virtualenv)](fg:#9399b2)"
+style = "fg:#89b4fa"
 detect_extensions = []
-detect_files = ['pyproject.toml']
+detect_files = ["pyproject.toml"]
 symbol = "\uED1B"
 
 [rust]
 disabled = false
 format = ' [$symbol $numver( \($toolchain\))]($style)'
-style = 'fg:#fab387'
+style = "fg:#fab387"
 detect_extensions = []
-detect_files = ['Cargo.toml']
+detect_files = ["Cargo.toml"]
 symbol = "\U000F1617"
 
 [username]
 disabled = false
-format = '[$user]($style)'
-style_root = 'bold fg:#cdd6f4'
-style_user = 'fg:#cdd6f4'
+format = "[$user]($style)"
+style_root = "bold fg:#cdd6f4"
+style_user = "fg:#cdd6f4"
 
 [zig]
 disabled = false
-format = ' [$symbol $version]($style)'
-style = 'fg:#f9e2af'
+format = " [$symbol $version]($style)"
+style = "fg:#f9e2af"
 detect_extensions = []
 detect_files = ["build.zig.zon"]
 symbol = "\uE6A9"
