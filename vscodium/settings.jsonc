@@ -246,6 +246,7 @@
 	"python.languageServer": "None",
 	"python.terminal.activateEnvironment": false,
 	"python.terminal.shellIntegration.enabled": false,
+	"redhat.telemetry.enabled": false,
 	"rust-analyzer.assist.emitMustUse": true,
 	"rust-analyzer.assist.preferSelf": true,
 	"rust-analyzer.check.command": "clippy",
@@ -273,6 +274,9 @@
 	"typescript.preferences.preferTypeOnlyAutoImports": true,
 	"typescript.preferences.quoteStyle": "single",
 	"typescript.preferences.useAliasesForRenames": false,
+	"yaml.extension.recommendations": false,
+	"yaml.format.printWidth": 100,
+	"yaml.format.proseWrap": "always",
 
 	// Language-specific settings
 	"[c]": {
@@ -366,6 +370,7 @@
 		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[yaml]": {
+		"editor.defaultFormatter": "redhat.vscode-yaml",
 		"editor.indentSize": 2, // Indentation greater than 2 is annoying to work with in YAML.
 		"editor.insertSpaces": true // YAML doesn't support tab indentation.
 	}
