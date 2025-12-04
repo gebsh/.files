@@ -10,7 +10,48 @@
 		"useEditorconfig": true
 	},
 	"linter": {
-		"enabled": true
+		"enabled": true,
+		"rules": {
+			"complexity": {
+				// This is not confusing.
+				"noThisInStatic": "off",
+				"noUselessStringConcat": "on",
+				"useSimplifiedLogicExpression": "on"
+			},
+			"correctness": {
+				"useSingleJsDocAsterisk": {
+					"level": "on",
+					"fix": "safe"
+				}
+			},
+			"style": {
+				// Non-null assertions are sometimes required and it's often clear from the context
+				// that they're safe.
+				"noNonNullAssertion": "off",
+				"useCollapsedElseIf": "on",
+				"useCollapsedIf": "on",
+				"useConsistentArrayType": "on",
+				"useConst": {
+					"level": "on",
+					// This rule is extremely annoying when reformatting files with an unfinished
+					// implementation that already contains `let` declarations which soon will be
+					// reassigned, but aren't yet.
+					"fix": "unsafe"
+				},
+				"useNodeAssertStrict": "on",
+				"useNumberNamespace": "on",
+				"useNumericSeparators": "on"
+			},
+			"suspicious": {
+				"useAwait": "on",
+				"useStrictMode": "on"
+			}
+		}
+	},
+	"html": {
+		"formatter": {
+			"enabled": true
+		}
 	},
 	"javascript": {
 		"formatter": {

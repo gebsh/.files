@@ -292,8 +292,7 @@
 	},
 	"[css]": {
 		"editor.codeActionsOnSave": {
-			"source.fixAll.biome": "explicit",
-			"source.organizeImports.biome": "explicit"
+			"source.fixAll.biome": "explicit"
 		},
 		"editor.defaultFormatter": "biomejs.biome"
 	},
@@ -302,8 +301,7 @@
 	},
 	"[html]": {
 		"editor.codeActionsOnSave": {
-			"source.fixAll.biome": "explicit",
-			"source.organizeImports.biome": "explicit"
+			"source.fixAll.biome": "explicit"
 		},
 		"editor.defaultFormatter": "biomejs.biome"
 	},
