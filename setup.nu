@@ -19,6 +19,7 @@ let configs = [
 	['starship/starship.toml', ($XDG_CONFIG_HOME | path join 'starship' 'starship.toml')]
 	['tombi/config.toml', ($XDG_CONFIG_HOME | path join 'tombi' 'config.toml')]
 	['vscodium/snippets', ($XDG_CONFIG_HOME | path join 'VSCodium' 'User' 'snippets')]
+	['vscodium/keybindings.jsonc', ($XDG_CONFIG_HOME | path join 'VSCodium' 'User' 'keybindings.json')]
 	['vscodium/settings.jsonc', ($XDG_CONFIG_HOME | path join 'VSCodium' 'User' 'settings.json')]
 ]
 

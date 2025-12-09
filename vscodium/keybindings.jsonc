@@ -1,0 +1,11 @@
+[
+	{
+		"key": "alt+enter",
+		"command": "editor.action.insertSnippet",
+		"args": {
+			"name": "Insert line with a line comment below",
+			"snippet": "\n$LINE_COMMENT $0"
+		},
+		"when": "editorTextFocus && !editorReadonly"
+	}
+]
