@@ -2,6 +2,7 @@
 	// Core settings
 	"accessibility.underlineLinks": true,
 	"breadcrumbs.filePath": "off",
+	"debug.breakpointsView.presentation": "tree",
 	"debug.console.fontFamily": "'MonoLisa Preconfigured Ligatures Nerd Font', 'Iosevka Fixed Extended', 'SF Mono', Menlo, Monaco, 'DejaVu Sans Mono', 'Cascadia Code', monospace",
 	"debug.console.fontSize": 13,
 	"debug.internalConsoleOptions": "neverOpen",
