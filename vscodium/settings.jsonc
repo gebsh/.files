@@ -238,6 +238,11 @@
 	"javascript.preferences.useAliasesForRenames": false,
 	"js/ts.implicitProjectConfig.target": "ESNext",
 	"json.format.enable": false,
+	"json.schemaDownload.trustedDomains": {
+		"https://www.schemastore.org/": true,
+		"https://json-schema.org/": true,
+		"https://esm.sh/gh/catppuccin/": true
+	},
 	"less.format.enable": false,
 	"markdown.validate.enabled": true,
 	"npm.fetchOnlinePackageInfo": false,
