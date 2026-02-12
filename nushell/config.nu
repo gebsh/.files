@@ -73,7 +73,10 @@ do --env {
 	)
 
 	$env.GNUPGHOME = ($env.XDG_CONFIG_HOME | path join 'gnupg')
-	$env.GPG_TTY = (tty)
+
+	if (is-terminal --stdin) {
+		$env.GPG_TTY = (tty)
+	}
 
 	$env.HOMEBREW_PREFIX = '/usr/local'
 	$env.HOMEBREW_CELLAR = '/usr/local/Cellar'
