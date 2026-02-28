@@ -3,7 +3,7 @@
 	"accessibility.underlineLinks": true,
 	"breadcrumbs.filePath": "off",
 	"debug.breakpointsView.presentation": "tree",
-	"debug.console.fontFamily": "'MonoLisa Preconfigured Ligatures Nerd Font', 'Iosevka Fixed Extended', 'SF Mono', Menlo, Monaco, 'DejaVu Sans Mono', 'Cascadia Code', monospace",
+	"debug.console.fontFamily": "'Maple Mono Preconfigured Ligatures', 'Iosevka Fixed Extended', monospace",
 	"debug.console.fontSize": 13,
 	"debug.internalConsoleOptions": "neverOpen",
 	"debug.openExplorerOnEnd": true,
@@ -22,8 +22,8 @@
 	"editor.cursorStyle": "line-thin",
 	"editor.cursorSurroundingLines": 4,
 	"editor.detectIndentation": false,
-	"editor.fontFamily": "MonoLisa, 'Iosevka Fixed Extended', 'SF Mono', Menlo, Monaco, 'DejaVu Sans Mono', 'Cascadia Code', monospace",
-	"editor.fontLigatures": "'liga' off, 'zero', 'ss01', 'ss03', 'ss07', 'ss08', 'ss12', 'ss13', 'ss15', 'ss16'",
+	"editor.fontFamily": "'Maple Mono', 'Iosevka Fixed Extended', monospace",
+	"editor.fontLigatures": "'calt' off, 'cv01', 'cv03', 'cv61'",
 	"editor.fontSize": 15,
 	"editor.formatOnSave": true,
 	"editor.guides.indentation": false,
@@ -124,7 +124,7 @@
 	},
 	"scm.diffDecorationsGutterWidth": 2,
 	"scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
-	"scm.inputFontFamily": "'MonoLisa Preconfigured Ligatures Nerd Font', 'Iosevka Fixed Extended', 'SF Mono', Menlo, Monaco, 'DejaVu Sans Mono', 'Cascadia Code', monospace",
+	"scm.inputFontFamily": "'Maple Mono Preconfigured Ligatures', 'Iosevka Fixed Extended', monospace",
 	"scm.inputFontSize": 10.5,
 	"scm.repositories.sortOrder": "name",
 	"search.exclude": {
@@ -143,9 +143,9 @@
 	"terminal.integrated.cursorStyleInactive": "none",
 	"terminal.integrated.defaultProfile.osx": "Nushell",
 	"terminal.integrated.drawBoldTextInBrightColors": false,
-	"terminal.integrated.fontFamily": "'MonoLisa Nerd Font', 'Iosevka Fixed Extended', 'SF Mono', Menlo, Monaco, 'DejaVu Sans Mono', 'Cascadia Code', monospace",
-	"terminal.integrated.fontLigatures.enabled": true,
-	"terminal.integrated.fontLigatures.featureSettings": "'liga' off, 'zero', 'ss01', 'ss03', 'ss07', 'ss08', 'ss12', 'ss13', 'ss15', 'ss16'",
+	// This uses the font with preconfigured ligatures, because for some reason setting the regular
+	// font with `terminal.integrated.fontLigatures.{enabled,featureSettings}` doesn't work.
+	"terminal.integrated.fontFamily": "'Maple Mono Preconfigured Ligatures', 'Iosevka Fixed Extended', monospace",
 	"terminal.integrated.fontSize": 13,
 	"terminal.integrated.fontWeight": "300",
 	"terminal.integrated.hideOnStartup": "always",
@@ -225,6 +225,7 @@
 	"git.inputValidationSubjectLength": null,
 	"git.openRepositoryInParentFolders": "never",
 	"github.gitProtocol": "ssh",
+	"harper.linters.Spaces": false,
 	"html.autoCreateQuotes": false,
 	"html.format.enable": false,
 	"javascript.format.enable": false,
@@ -241,6 +242,7 @@
 	"json.schemaDownload.trustedDomains": {
 		"https://www.schemastore.org/": true,
 		"https://json-schema.org/": true,
+		"https://biomejs.dev/schemas/": true,
 		"https://esm.sh/gh/catppuccin/": true
 	},
 	"less.format.enable": false,

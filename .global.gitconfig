@@ -2,15 +2,58 @@
 	detachedHead = false
 	forceDeleteBranch = false
 [alias]
+	blamec = blame --color-by-age
 	commita = commit --amend
 	commitan = commit --amend --no-edit
 	pushf = push --force-with-lease
 	pushn = push --no-verify
 	pushnf = push --no-verify --force-with-lease
 [blame]
-	ignoreRevsFile = .git-blame-ignore-revs
+	ignoreRevsFile = :(optional).git-blame-ignore-revs
 [branch]
 	sort = -committerdate
+[color "advice"]
+	hint = blue
+[color "blame"]
+	highlightRecent = "#7f849c,12 months ago,brightwhite,6 months ago,yellow,3 months ago,green"
+	repeatedLines = blue
+[color "branch"]
+	current = blue
+	local = normal
+	plain = white
+	remote = magenta
+	upstream = cyan
+[color "decorate"]
+	branch = blue
+	grafted = yellow
+	HEAD = blue
+	remoteBranch = magenta
+	stash = cyan
+	tag = blue
+[color "interactive"]
+	error = red
+	header = normal bold
+	help = normal
+	prompt = green
+[color "push"]
+	error = red
+[color "remote"]
+	error = red
+	hint = blue
+	success = green
+	warning = yellow
+[color "status"]
+	added = green
+	branch = blue
+	changed = yellow
+	header = normal
+	localBranch = blue
+	nobranch = normal
+	remoteBranch = magenta
+	unmerged = "#fab387"
+	untracked = "#74c7ec"
+[color "transport"]
+	rejected = red
 [commit]
 	gpgSign = true
 	verbose = true
@@ -19,6 +62,8 @@
 	editor = codium --wait
 	eol = lf
 	excludesFile = ~/.global.gitignore
+	# Git by default sets `$env.LESS=FRX`. The `X` option breaks mouse scrolling, so this unsets it.
+	pager = "less -+X -K"
 	safecrlf = warn
 [diff]
 	algorithm = histogram
@@ -29,7 +74,9 @@
 [log]
 	date = iso
 [merge]
-	conflictStyle = zdiff3
+	conflictStyle = diff3
+[pager]
+	blame = "less -+X -KSM"
 [pull]
 	rebase = true
 [push]
@@ -41,6 +88,8 @@
 [rerere]
 	autoUpdate = true
 	enabled = true
+[status]
+	short = true
 [tag]
 	gpgSign = true
 	sort = -v:refname
