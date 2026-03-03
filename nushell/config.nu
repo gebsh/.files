@@ -28,6 +28,7 @@ do --env {
 	$env.XDG_STATE_HOME = $env.XDG_CACHE_HOME
 	$env.XDG_VIDEOS_DIR = ($HOME_DIR | path join 'Movies')
 
+	$env.NPM_CONFIG_CACHE = ($env.XDG_CACHE_HOME | path join 'npm')
 	$env.PNPM_HOME = ($env.XDG_DATA_HOME | path join 'pnpm')
 	$env.CARGO_HOME = ($env.XDG_DATA_HOME | path join 'cargo')
 	$env.RUSTUP_HOME = ($env.XDG_DATA_HOME | path join 'rustup')
