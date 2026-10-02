@@ -59,7 +59,7 @@
 	verbose = true
 [core]
 	attributesFile = ~/.global.gitattributes
-	editor = codium --wait
+	editor = gram --wait
 	eol = lf
 	excludesFile = ~/.global.gitignore
 	# Git by default sets `$env.LESS=FRX`. The `X` option breaks mouse scrolling, so this unsets it.

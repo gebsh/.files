@@ -11,6 +11,7 @@ let configs = [
 	['clang/.clang-format', '~/.clang-format']
 	['dust/config.toml', '~/.config/dust/config.toml']
 	['ghostty/config', ($XDG_CONFIG_HOME | path join 'com.mitchellh.ghostty' 'config')]
+	['gram/settings.jsonc', '~/.config/gram/settings.jsonc']
 	['nushell/env.nu', ($XDG_CONFIG_HOME | path join 'nushell' 'env.nu')]
 	['nushell/config.nu', ($XDG_CONFIG_HOME | path join 'nushell' 'config.nu')]
 	['nushell/modules', ($XDG_CONFIG_HOME | path join 'nushell' 'modules')]

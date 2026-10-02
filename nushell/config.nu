@@ -40,7 +40,7 @@ do --env {
 	path add ($env.PNPM_HOME | path join 'bin')
 	path add ($env.CARGO_HOME | path join 'bin')
 
-	$env.VISUAL = 'codium'
+	$env.VISUAL = 'gram'
 	$env.LS_COLORS = (
 		[
 			[type, fg];
@@ -126,7 +126,7 @@ do --env {
 	$env.TRANSIENT_PROMPT_INDICATOR_VI_INSERT = ''
 	$env.TRANSIENT_PROMPT_MULTILINE_INDICATOR = ''
 
-	$env.config.buffer_editor = 'codium'
+	$env.config.buffer_editor = 'gram'
 	$env.config.color_config = $theme.catppuccin_mocha
 	$env.config.display_errors.termination_signal = false
 	$env.config.filesize.precision = 2

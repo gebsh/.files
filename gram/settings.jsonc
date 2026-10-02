@@ -1,0 +1,256 @@
+{
+	"auto_signature_help": true,
+	"base_keymap": "VSCode",
+	"buffer_font_fallbacks": ["Iosevka Fixed"],
+	"buffer_font_family": "Maple Mono",
+	"buffer_font_features": {
+		"calt": false,
+		"cv01": true,
+		"cv03": true,
+		"cv61": true
+	},
+	"buffer_font_size": 15,
+	"buffer_font_weight": 500,
+	"buffer_line_height": { "custom": 1.65 },
+	"diagnostics": {
+		"inline": {
+			"enabled": true,
+			"padding": 1
+		}
+	},
+	"file_types": {
+		"LOG": ["*.log"],
+		"Plain Text": ["LICENSE"]
+	},
+	"git": {
+		"inline_blame": {
+			"padding": 2
+		},
+		"path_style": "file_path_first"
+	},
+	"git_panel": {
+		"default_width": 320,
+		"dock": "right"
+	},
+	"hard_tabs": true,
+	"icon_theme": {
+		"dark": "Catppuccin Mocha",
+		"light": "Catppuccin Latte",
+		"mode": "dark"
+	},
+	"inlay_hints": {
+		"toggle_on_modifiers_press": {
+			"alt": true,
+			"control": true
+		}
+	},
+	"languages": {
+		"C": {
+			"formatter": "language_server",
+			"language_servers": ["clangd"]
+		},
+		"C++": {
+			"formatter": "language_server",
+			"language_servers": ["clangd"]
+		},
+		"CSS": {
+			"code_actions_on_format": {
+				"source.fixAll.biome": true
+			},
+			"formatter": {
+				"language_server": { "name": "biome" }
+			},
+			"language_servers": ["vscode-css-language-server", "biome"]
+		},
+		"Git Commit": {
+			"wrap_guides": [72]
+		},
+		"HTML": {
+			"code_actions_on_format": {
+				"source.fixAll.biome": true
+			},
+			"formatter": {
+				"language_server": { "name": "biome" }
+			},
+			"language_servers": ["vscode-html-language-server", "biome"]
+		},
+		"JavaScript": {
+			"code_actions_on_format": {
+				"source.fixAll.biome": true,
+				"source.organizeImports.biome": true
+			},
+			"formatter": {
+				"language_server": { "name": "biome" }
+			},
+			"language_servers": ["typescript-ls", "biome"]
+		},
+		"JSON": {
+			"code_actions_on_format": {
+				"source.fixAll.biome": true
+			},
+			"formatter": {
+				"language_server": { "name": "biome" }
+			},
+			"language_servers": ["json-language-server", "biome"]
+		},
+		"JSONC": {
+			"code_actions_on_format": {
+				"source.fixAll.biome": true
+			},
+			"formatter": {
+				"language_server": { "name": "biome" }
+			},
+			"language_servers": ["json-language-server", "biome"]
+		},
+		"Markdown": {
+			"soft_wrap": "bounded"
+		},
+		"Nu": {
+			"language_servers": ["nu"]
+		},
+		"Plain Text": {
+			"soft_wrap": "bounded"
+		},
+		"Python": {
+			"formatter": {
+				"language_server": { "name": "ruff" }
+			},
+			"language_servers": ["ty", "ruff"]
+		},
+		"Rust": {
+			"code_actions_on_format": {
+				"source.fixAll": true,
+				"source.organizeImports": true
+			},
+			"formatter": "language_server",
+			"language_servers": ["rust-analyzer"]
+		},
+		"TOML": {
+			"formatter": "language_server",
+			"language_servers": ["tombi"]
+		},
+		"TypeScript": {
+			"code_actions_on_format": {
+				"source.fixAll.biome": true,
+				"source.organizeImports.biome": true
+			},
+			"formatter": {
+				"language_server": { "name": "biome" }
+			},
+			"language_servers": ["typescript-ls", "biome"]
+		},
+		"YAML": {
+			"formatter": "language_server",
+			"hard_tabs": false, // YAML doesn't support tab indentation.
+			"language_servers": ["yaml-language-server"],
+			"tab_size": 2 // Indentation greater than 2 is annoying to work with in YAML.
+		}
+	},
+	"lsp": {
+		"json-language-server": {
+			"binary": {
+				"allow_binary_download": true
+			},
+			"enable_lsp_tasks": true
+		},
+		"rust-analyzer": {
+			"initialization_options": {
+				"assist": {
+					"emitMustUse": true,
+					"preferSelf": true
+				},
+				"check": {
+					"command": "clippy"
+				},
+				"completion": {
+					"callable": {
+						"snippets": "add_parentheses"
+					}
+				},
+				"hover": {
+					"memoryLayout": {
+						"alignment": "both",
+						"offset": "both"
+					}
+				},
+				"imports": {
+					"granularity": {
+						"enforce": true,
+						"group": "module"
+					},
+					"group": { "enable": false }
+				},
+				"inlayHints": {
+					"bindingModeHints": { "enable": true },
+					"closureCaptureHints": { "enable": true },
+					"expressionAdjustmentHints": {
+						"enable": "always"
+					},
+					"lifetimeElisionHints": {
+						"enable": "skip_trivial"
+					}
+				}
+			}
+		},
+		"vscode-css-language-server": {
+			"binary": {
+				"allow_binary_download": true
+			},
+			"enable_lsp_tasks": true
+		},
+		"vscode-html-language-server": {
+			"binary": {
+				"allow_binary_download": true
+			},
+			"enable_lsp_tasks": true
+		},
+		"yaml-language-server": {
+			"binary": {
+				"allow_binary_download": true
+			},
+			"enable_lsp_tasks": true
+		}
+	},
+	"node": {
+		"allow_npm_install": true
+	},
+	"outline_panel": {
+		"default_width": 320,
+		"dock": "right",
+		"indent_size": 18
+	},
+	"preferred_line_length": 100,
+	"project_panel": {
+		"default_width": 320,
+		"dock": "right",
+		"entry_spacing": "comfortable"
+	},
+	"scroll_beyond_last_line": "off",
+	"seed_search_query_from_cursor": "selection",
+	"show_whitespaces": "selection",
+	"status_bar": {
+		"active_encoding_button": "enabled",
+		"active_file": false,
+		"line_endings_button": true
+	},
+	"tabs": {
+		"activate_on_close": "left_neighbour",
+		"file_icons": true
+	},
+	"terminal": {
+		"blinking": "on",
+		"cursor_shape": "bar",
+		"detect_venv": "off",
+		"line_height": { "custom": 1.65 },
+		"minimum_contrast": 0
+	},
+	"theme": {
+		"dark": "Catppuccin Mocha - No Italics",
+		"light": "Catppuccin Latte - No Italics",
+		"mode": "dark"
+	},
+	"ui_font_fallbacks": ["Inter"],
+	"ui_font_family": "Atkinson Hyperlegible Next",
+	"ui_font_size": 14,
+	"wrap_guides": [100]
+}
