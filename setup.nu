@@ -7,7 +7,7 @@ let configs = [
 	['.global.gitconfig', '~/.gitconfig']
 	['.private.gitconfig', '~/.private.gitconfig']
 	['bat/config', ($XDG_CONFIG_HOME | path join 'bat' 'config')]
-	['biome/config.jsonc', '~/biome.jsonc']
+	['biome/config.jsonc', ($XDG_CONFIG_HOME | path join 'biome' 'biome.jsonc')]
 	['clang/.clang-format', '~/.clang-format']
 	['dust/config.toml', '~/.config/dust/config.toml']
 	['ghostty/config', ($XDG_CONFIG_HOME | path join 'com.mitchellh.ghostty' 'config')]
