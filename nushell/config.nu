@@ -37,7 +37,7 @@ do --env {
 	path add '/usr/local/bin'
 	path add '/usr/local/opt/llvm/bin'
 	path add $env.XDG_BIN_HOME
-	path add $env.PNPM_HOME
+	path add ($env.PNPM_HOME | path join 'bin')
 	path add ($env.CARGO_HOME | path join 'bin')
 
 	$env.VISUAL = 'codium'
