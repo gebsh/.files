@@ -99,6 +99,8 @@ do --env {
 	$env.FNM_RESOLVE_ENGINES = 'true'
 	$env.FNM_ARCH = 'x64'
 
+	$env.PYTHON_HISTORY = ($env.XDG_CACHE_HOME | path join 'python' '.python_history')
+
 	$env.STARSHIP_CONFIG = ($env.XDG_CONFIG_HOME | path join 'starship' 'starship.toml')
 	$env.STARSHIP_SHELL = 'nu'
 	$env.STARSHIP_SESSION_KEY = (random chars -l 16)
