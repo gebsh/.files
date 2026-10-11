@@ -153,7 +153,8 @@ do --env {
 	}
 	$env.config.render_right_prompt_on_last_line = true
 	$env.config.show_banner = false
-	$env.config.table.missing_value_symbol = '<empty>'
+	$env.config.table.index_mode = 'auto'
+	$env.config.table.missing_value_symbol = '∅'
 }
 
 def --env --wrapped j [...rest: string] {
