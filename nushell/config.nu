@@ -42,6 +42,7 @@ do --env {
 	path add '/usr/local/bin'
 	path add '/usr/local/opt/llvm/bin'
 	path add $env.XDG_BIN_HOME
+	path add ($env.XDG_DATA_HOME | path join 'carapace' 'bin')
 	path add ($env.FNM_MULTISHELL_PATH | path join 'bin')
 	path add ($env.CARGO_HOME | path join 'bin')
 
@@ -89,6 +90,9 @@ do --env {
 	$env.HOMEBREW_REPOSITORY = '/usr/local/Homebrew'
 	$env.HOMEBREW_NO_ANALYTICS = 1
 	$env.HOMEBREW_NO_ENV_HINTS = 1
+
+	$env.CARAPACE_BRIDGES = 'zsh,bash'
+	$env.CARAPACE_COLOR = 0
 
 	$env.NODE_REPL_HISTORY = ($env.XDG_CACHE_HOME | path join 'node' 'repl_history')
 	$env.NPM_CONFIG_USERCONFIG = ($env.XDG_CONFIG_HOME | path join 'npm' '.npmrc')
@@ -141,6 +145,9 @@ do --env {
 
 	$env.config.buffer_editor = 'gram'
 	$env.config.color_config = $theme.catppuccin_mocha
+	$env.config.completions.external.completer = { |place: record|
+		^carapace $place.command.0 nushell ...$place.command | from json
+	}
 	$env.config.display_errors.termination_signal = false
 	$env.config.filesize.precision = 2
 	$env.config.footer_mode = 'auto'
