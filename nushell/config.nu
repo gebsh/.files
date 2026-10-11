@@ -10,7 +10,7 @@ do --env {
 	# Add XDG environment variables because there are tools that unconditionally use them instead of
 	# OS-specific directories leading to inconsistencies and polluting the home directory.
 	#
-	# These paths are taken from https://docs.rs/dirs/6.0.0/dirs/ with an exception for the
+	# These paths are taken from https://docs.rs/dirs/7.0.0/dirs/ with an exception for the
 	# `XDG_STATE_HOME` variable (used for example by pnpm), which is set to the cache directory.
 	#
 	# `XDG_BIN_HOME` is not part of the XDG standard, but it's recognized by some tools (`uv`, most
@@ -29,7 +29,12 @@ do --env {
 	$env.XDG_VIDEOS_DIR = ($HOME_DIR | path join 'Movies')
 
 	$env.NPM_CONFIG_CACHE = ($env.XDG_CACHE_HOME | path join 'npm')
-	$env.PNPM_HOME = ($env.XDG_DATA_HOME | path join 'pnpm')
+	# fnm is configured manually because `fnm env` creates configurations scoped to shell sessions:
+	# each session has a unique symlink to its Node version. Over time this accumulates thousands of
+	# stale symlinks (https://github.com/Schniz/fnm/issues/696). I want to manage the active Node
+	# version manually, so this configuration hard-codes the cache directory instead.
+	$env.FNM_DIR = ($env.XDG_CONFIG_HOME | path join 'fnm')
+	$env.FNM_MULTISHELL_PATH = ($env.XDG_CACHE_HOME | path join 'fnm')
 	$env.CARGO_HOME = ($env.XDG_DATA_HOME | path join 'cargo')
 	$env.RUSTUP_HOME = ($env.XDG_DATA_HOME | path join 'rustup')
 
@@ -37,7 +42,7 @@ do --env {
 	path add '/usr/local/bin'
 	path add '/usr/local/opt/llvm/bin'
 	path add $env.XDG_BIN_HOME
-	path add ($env.PNPM_HOME | path join 'bin')
+	path add ($env.FNM_MULTISHELL_PATH | path join 'bin')
 	path add ($env.CARGO_HOME | path join 'bin')
 
 	$env.VISUAL = 'gram'
@@ -87,6 +92,12 @@ do --env {
 
 	$env.NODE_REPL_HISTORY = ($env.XDG_CACHE_HOME | path join 'node' 'repl_history')
 	$env.NPM_CONFIG_USERCONFIG = ($env.XDG_CONFIG_HOME | path join 'npm' '.npmrc')
+	$env.FNM_VERSION_FILE_STRATEG = 'local'
+	$env.FNM_LOGLEVEL = 'info'
+	$env.FNM_NODE_DIST_MIRROR = 'https://nodejs.org/dist'
+	$env.FNM_COREPACK_ENABLED = 'false'
+	$env.FNM_RESOLVE_ENGINES = 'true'
+	$env.FNM_ARCH = 'x64'
 
 	$env.STARSHIP_CONFIG = ($env.XDG_CONFIG_HOME | path join 'starship' 'starship.toml')
 	$env.STARSHIP_SHELL = 'nu'
