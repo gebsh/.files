@@ -164,21 +164,36 @@ do --env {
 	$env.config.table.missing_value_symbol = '∅'
 }
 
-def --env --wrapped j [...rest: string] {
-	let path = match $rest {
+def --env --wrapped j [...keywords: string] {
+	let path = match $keywords {
 		[] => '~',
 		['-'] => '-',
 		[$arg] if ($arg | path expand | path type) == 'dir' => $arg,
 		_ => {
-			^zoxide query --exclude $env.PWD -- ...$rest | str trim -r -c "\n"
+			^zoxide query --exclude $env.PWD -- ...$keywords | str trim --right -c "\n"
 		}
 	}
 
 	cd $path
 }
 
-def --env --wrapped ji [...rest: string] {
-	cd $'(^zoxide query --interactive -- ...$rest | str trim -r -c "\n")'
+def --env --wrapped ji [...keywords: string] {
+	cd $'(^zoxide query --interactive -- ...$keywords | str trim --right -c "\n")'
 }
 
+# Create a new directory and immediately change the current working directory to it.
+def --env mkcdir [dir: directory]: nothing -> nothing {
+	mkdir $dir
+	cd $dir
+}
+
+# Move contents of a directory to the current directory and then remove the former.
+def hoist [dir: directory]: nothing -> nothing {
+	mv ($'($dir)/*' | into glob) .
+	rm $dir
+}
+
+alias ls = ls -s
+alias show = ^open -a Finder .
 alias tree = ^dust
+alias ghidra = ^ghidraRun
